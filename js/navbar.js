@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#historia">Historia</a></li>
+                <li><a href="#galeria">Galería</a></li>
                 <li><a href="#resultados">Resultados Históricos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>

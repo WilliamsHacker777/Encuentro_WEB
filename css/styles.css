@@ -262,6 +262,101 @@ a {
 
 
 /* =========================================
+   GALERÍA (BENTO GRID)
+========================================= */
+.galeria-section {
+    padding: 2rem 0 6rem;
+    background-color: var(--bg-paper);
+    position: relative;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 250px;
+    gap: 1.5rem;
+    grid-auto-flow: dense;
+}
+
+.bento-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(184, 151, 104, 0.4);
+    cursor: pointer;
+    background-color: var(--bg-dark);
+}
+
+.bento-item::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border: 1px solid rgba(232, 213, 165, 0.3);
+    /* Gold light con opacidad */
+    pointer-events: none;
+    z-index: 2;
+    border-radius: 4px;
+}
+
+.bento-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: block;
+}
+
+.bento-item:hover .bento-img {
+    transform: scale(1.08);
+}
+
+.bento-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(31, 21, 18, 0.9) 0%, rgba(31, 21, 18, 0.4) 60%, transparent 100%);
+    padding: 30px 20px 20px;
+    z-index: 3;
+    transform: translateY(10px);
+    transition: var(--transition);
+}
+
+.bento-item:hover .bento-overlay {
+    transform: translateY(0);
+}
+
+.bento-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: var(--gold);
+    color: var(--bg-dark);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Clases modificadoras del Bento */
+.col-span-2 {
+    grid-column: span 2;
+}
+
+.col-span-3 {
+    grid-column: span 3;
+}
+
+.row-span-2 {
+    grid-row: span 2;
+}
+
+/* =========================================
    RESULTADOS HISTÓRICOS (TABS)
 ========================================= */
 .resultados-section {
@@ -661,5 +756,34 @@ footer {
 
     .nav-links {
         display: none;
+    }
+
+    /* Galeria Bento Responsivo */
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+        gap: 1rem;
+    }
+
+    .col-span-2 {
+        grid-column: span 2;
+    }
+
+    .row-span-2 {
+        grid-row: span 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 220px;
+    }
+
+    .col-span-2,
+    .row-span-2,
+    .col-span-3 {
+        grid-column: span 1;
+        grid-row: span 1;
     }
 }
