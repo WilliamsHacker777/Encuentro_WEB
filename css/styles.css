@@ -1,6 +1,10 @@
 /* =========================================
    VARIABLES & GLOBALES
 ========================================= */
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --primary-color: #3e221a;
     /* Marrón oscuro profundo */
@@ -31,9 +35,7 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+
 
 body {
     font-family: var(--font-body);
